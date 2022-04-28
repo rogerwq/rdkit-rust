@@ -1,0 +1,8 @@
+[package]
+name = "rdkit-rust"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+rdkit-ffi = { path = "rdkit-sys", version = "0.1.0" }
+cxx = "1.0"
