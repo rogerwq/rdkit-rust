@@ -3,10 +3,10 @@ name = "rdkit-ffi"
 version = "0.1.0"
 edition = "2018"
 include = [
-    "rdkit/Code/GraphMol/*.cpp",
-    "rdkit/Codee/GraphMol/SmilesParse",
-    "rdkit/Code/RDGeneral",
-    "src"
+    "/rdkit/Code/GraphMol/*.cpp",
+    "/rdkit/Code/GraphMol/SmilesParse",
+    "/rdkit/Code/RDGeneral",
+    "/src"
 ]
 
 [dependencies]

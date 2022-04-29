@@ -13,6 +13,8 @@ impl Molecule {
     pub fn num_atoms(&self) -> u32 { rd::RWMol_get_num_atoms(&self.rd_mol) }
     pub fn num_heavy_atoms(&self) -> u32 { rd::RWMol_get_num_heavy_atoms(&self.rd_mol) }
     pub fn num_bonds(&self) -> u32 { rd::RWMol_get_num_bonds(&self.rd_mol) }
+
+   
 }
 
 #[cfg(test)]
