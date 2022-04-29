@@ -101,14 +101,25 @@ fn main() {
         .file("rdkit/Code/GraphMol/AddHs.cpp")
         .file("rdkit/Code/GraphMol/new_canon.cpp")
         .file("rdkit/Code/GraphMol/SmilesParse/SmilesParse.cpp")
+        .file("rdkit/Code/GraphMol/SmilesParse/SmilesWrite.cpp")
+        .file("rdkit/Code/GraphMol/SmilesParse/SmartsWrite.cpp")
         .file("rdkit/Code/GraphMol/SmilesParse/SmilesParseOps.cpp")
         .file("rdkit/Code/GraphMol/SmilesParse/CXSmilesOps.cpp")
         .file("rdkit/Code/GraphMol/Fingerprints/FingerprintUtil.cpp")
         .file("rdkit/Code/GraphMol/Fingerprints/MorganFingerprints.cpp")
+        .file("rdkit/Code/GraphMol/GenericGroups/GenericGroups.cpp")
+        .file("rdkit/Code/GraphMol/Substruct/SubstructMatch.cpp")
+        .file("rdkit/Code/GraphMol/Substruct/SubstructUtils.cpp")
+        .file("rdkit/Code/GraphMol/FMCS/Seed.cpp")
+        .file("rdkit/Code/GraphMol/FMCS/SubstructMatchCustom.cpp")
+        .file("rdkit/Code/GraphMol/FMCS/MaximumCommonSubgraph.cpp")
+        .file("rdkit/Code/GraphMol/FMCS/FMCS.cpp")
         .file("rdkit/Code/RDGeneral/RDLog.cpp")
         .file("rdkit/Code/RDGeneral/Invariant.cpp")
         .file("rdkit/Code/RDGeneral/types.cpp")
+        .file("rdkit/Code/RDGeneral/utils.cpp")
         .file("rdkit/Code/RDGeneral/LocaleSwitcher.cpp")
+        .file("rdkit/Code/Geometry/point.cpp")
         .file(dst.join("smiles.tab.cpp"))
         .file(dst.join("smarts.tab.cpp"))
         .file(dst.join("lex.yysmiles.cpp"))
@@ -127,6 +138,9 @@ fn main() {
         .define("RDKIT_SUBGRAPHS_EXPORT", "RDKIT_EXPORT_API")
         .define("RDKIT_FINGERPRINTS_EXPORT", "RDKIT_EXPORT_API")
         .define("RDKIT_SUBSTRUCTMATCH_EXPORT", "RDKIT_EXPORT_API")
+        .define("RDKIT_FMCS_EXPORT", "RDKIT_EXPORT_API")
+        .define("RDKIT_GENERICGROUPS_EXPORT", "RDKIT_EXPORT_API")
+        .define("BOOST_BIND_GLOBAL_PLACEHOLDERS", None)
         .flag_if_supported("-std=c++17")
         .flag("-Wno-unused-parameter")
         .flag("-Wno-unused-function")
@@ -142,6 +156,7 @@ fn main() {
         .compile("rdkit");
 
         println!("cargo:rerun-if-changed=src/lib.rs");
+        println!("cargo:rerun-if-changed=src/wrapper.h");
         println!("cargo:rerun-if-changed=src/wrapper.cpp");
 
 }
