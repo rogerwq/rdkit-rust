@@ -1,0 +1,3 @@
+[submodule "rdkit-sys/rdkit"]
+	path = rdkit-sys/rdkit
+	url = https://github.com/rdkit/rdkit.git
