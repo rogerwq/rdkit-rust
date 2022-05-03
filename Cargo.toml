@@ -1,7 +1,15 @@
 [package]
-name = "rdkit-rust"
+name = "rdkit"
 version = "0.1.0"
 edition = "2018"
+authors = ["Qin Wan <rogerwq@gmail.com>"]
+license = "MIT"
+description = "Rust bindings to chemical toolbox RDKit"
+repository = "https://github.com/rogerwq/rdkit-rust"
+homepage = "https://github.com/rogerwq/rdkit-rust"
+documentation = "https://docs.rs/rdkit"
+keywords = ["cheminformatics", "rdkit"]
+categories = ["science"]
 
 [dependencies]
 rdkit-ffi = { path = "rdkit-sys", version = "0.1.0" }
