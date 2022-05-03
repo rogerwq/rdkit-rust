@@ -4,20 +4,22 @@ pub mod rd {
         include!("rdkit-ffi/src/wrapper.h");
 
         // SmilesParse
-        fn SmilesParse_smi_to_mol(smiles: &CxxString) -> UniquePtr<RWMol>;
+        fn SmilesParse_smi_to_mol(smiles: &CxxString) -> SharedPtr<RWMol>;
 
         // RWmol
         type RWMol;
-        fn RWMol_get_num_atoms(mol: &UniquePtr<RWMol>) -> u32;
-        fn RWMol_get_num_heavy_atoms(mol: &UniquePtr<RWMol>) -> u32;
-        fn RWMol_get_num_bonds(mol: &UniquePtr<RWMol>) -> u32;
+        fn RWMol_get_num_atoms(mol: &SharedPtr<RWMol>) -> u32;
+        fn RWMol_get_num_heavy_atoms(mol: &SharedPtr<RWMol>) -> u32;
+        fn RWMol_get_num_bonds(mol: &SharedPtr<RWMol>) -> u32;
         type ROMolPtrVec;
         fn ROMolPtrVec_new() -> UniquePtr<ROMolPtrVec>;
-        fn ROMolPtrVec_emplace_back(mols: &UniquePtr<ROMolPtrVec>, mol: &UniquePtr<RWMol>);
+        fn ROMolPtrVec_emplace_back(mols: &UniquePtr<ROMolPtrVec>, mol: &SharedPtr<RWMol>);
+        fn ROMolPtrVec_ptrs_count(mols: &UniquePtr<ROMolPtrVec>) -> u32;
+        fn ROMolPtrVec_first_ptr_atom_count(mols: &UniquePtr<ROMolPtrVec>, index: usize) -> u32;
 
         // MorganFingerprint
         type MorganFingerprint;
-        fn MorganFP_get_fingerprint(mol: &UniquePtr<RWMol>, radius: u32, useChirality: bool, useBondTypes: bool, useCounts: bool, onlyNonzeroInvariants: bool, includeRedundantEnvironments: bool) -> UniquePtr<MorganFingerprint>;
+        fn MorganFP_get_fingerprint(mol: &SharedPtr<RWMol>, radius: u32, useChirality: bool, useBondTypes: bool, useCounts: bool, onlyNonzeroInvariants: bool, includeRedundantEnvironments: bool) -> UniquePtr<MorganFingerprint>;
         fn MorganFP_get_nonzero_elements_size(mfp: &UniquePtr<MorganFingerprint>) -> usize;
 
         // FMCS

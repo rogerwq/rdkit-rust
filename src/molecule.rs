@@ -1,7 +1,7 @@
 use rdkit_ffi::rd;
 
 pub struct Molecule {
-    pub rd_mol: cxx::UniquePtr<rd::RWMol>
+    pub rd_mol: cxx::SharedPtr<rd::RWMol>
 }
 
 impl Molecule {
