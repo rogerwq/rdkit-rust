@@ -1,11 +1,24 @@
 [package]
 name = "rdkit-ffi"
-version = "0.1.0"
+version = "0.1.0+rdkit-2022-09-1-pre"
 edition = "2018"
+authors = ["Qin Wan <rogerwq@gmail.com>"]
+license = "MIT"
+description = "Native bindings to RDKit"
+repository = "https://github.com/rogerwq/rdkit-rust"
+homepage = "https://github.com/rogerwq/rdkit-rust"
+documentation = "https://docs.rs/rdkit-sys"
+keywords = ["cheminformatics", "rdkit", "cplusplus", "ffi"]
+categories = ["science"]
 include = [
     "/rdkit/Code/GraphMol/*.cpp",
     "/rdkit/Code/GraphMol/SmilesParse",
-    "/rdkit/Code/RDGeneral",
+    "/rdkit/Code/GraphMol/Fingerprints",
+    "/rdkit/Code/GraphMol/GenericGroups",
+    "/rdkit/Code/GraphMol/Substruct",
+    "/rdkit/Code/GraphMol/FMCS",
+    "/rdkit/Code/RDGeneral/*.cpp",
+    "/rdkit/Code/Geometry/*.cpp",
     "/src"
 ]
 
